@@ -17,7 +17,7 @@ class Encoder:
     def __init__(self, data: bytes, packet_size: int):
         packet_size &= 0xFFFF
         if not data or packet_size == 0:
-            raise ValueError("gorsa: invalid input")
+            raise ValueError("invalid input")
         self.packet_size = packet_size
         self.data_len = len(data)
         self.k = -(-len(data) // packet_size)
@@ -100,5 +100,5 @@ class Decoder:
     def get_decoded_data(self) -> tuple[bytes | None, Exception | None]:
         data, ok = self._result, self._result is not None
         if not ok:
-            return None, fmt.Errorf("decoding failed")
+            return None, ValueError("decoding failed")
         return data, None
