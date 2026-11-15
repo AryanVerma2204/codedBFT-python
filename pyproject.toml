@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codedbft-sim"
+version = "0.1.0"
+description = "Simulator comparing PBFT with CodedBFT, a BFT consensus protocol that disseminates blocks using fountain-coded packets"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Aryan Verma" }]
+dependencies = []
+
+[project.optional-dependencies]
+plot = [
+    "pandas>=2.0",
+    "matplotlib>=3.7",
+    "seaborn>=0.13",
+]
+
+[tool.setuptools]
+py-modules = [
+    "coding",
+    "config",
+    "main",
+    "messages",
+    "metrics",
+    "network",
+    "node",
+    "protocol_codedbft",
+    "protocol_pbft",
+    "simulation",
+    "plot_results",
+]
